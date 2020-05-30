@@ -12,6 +12,7 @@ telpassword = input("请输入telnet密码:")
 enpassword = input("请输入enable密码:")
 flag = True
 output = ""
+#日志文件名称
 filename = "{0}_{1}-{2}-{3}_{4}-{5}-{6}.log".format(host, now.year, now.month, now.day, now.hour,
                                                         now.minute, now.second)
 tel = telnetlib.Telnet(host)
