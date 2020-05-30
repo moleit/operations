@@ -23,7 +23,7 @@ filename = "{0}_{1}-{2}-{3}_{4}-{5}-{6}.log".format(host, now.year, now.month, n
 #创建telnet连接对象
 tel = telnetlib.Telnet(host)
 #开启调试模式
-tel.set_debuglevel(2)
+# tel.set_debuglevel(2)
 
 
 #判断程序是否正确连连接
