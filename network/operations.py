@@ -4,9 +4,7 @@ import telnetlib
 import time
 import datetime
 
-
 now = datetime.datetime.now()
-
 
 host = input("请输入需要备份配置的主机IP地址（仅支持Telnet方式）：")
 username = input("请输入用户名:")
