@@ -1,22 +1,29 @@
 # -*- conding=utf-8 -*-
 
+#导入包
 import telnetlib
 import time
 import datetime
 
+#获取当前时间
 now = datetime.datetime.now()
 
+#获取host地址，用户名以及密码
 host = input("请输入需要备份配置的主机IP地址（仅支持Telnet方式）：")
 username = input("请输入用户名:")
 telpassword = input("请输入telnet密码:")
 enpassword = input("请输入enable密码:")
 flag = True
+#保存配置文件字符串
 output = ""
 #日志文件名称
 filename = "{0}_{1}-{2}-{3}_{4}-{5}-{6}.log".format(host, now.year, now.month, now.day, now.hour,
                                                         now.minute, now.second)
+#创建telnet连接对象
 tel = telnetlib.Telnet(host)
+#开启调试模式
 #tel.set_debuglevel(2)
+
 data = tel.read_until(b"Username:")
 tel.write(username.encode() + b'\n')
 data = tel.read_until(b"Password:")
@@ -44,6 +51,7 @@ try:
 except Exception as e:
     print(e)
 print("正在将配置备份写入到文件中：" + filename)
+#将配置文件保存在文件中
 fp = open(filename, "w")
 fp.write(output)
 fp.close()
